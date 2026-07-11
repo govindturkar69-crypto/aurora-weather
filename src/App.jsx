@@ -18,7 +18,6 @@ const LS_SAVED = 'aurora.saved'
 const LS_UNITS = 'aurora.units'
 const LS_LAST = 'aurora.last'
 
-// A sensible default so there's always live data on first paint.
 const DEFAULT_PLACE = {
   id: 'london', name: 'London', admin: 'England', country: 'United Kingdom',
   countryCode: 'GB', latitude: 51.5074, longitude: -0.1278,
@@ -37,11 +36,10 @@ export default function App() {
   useEffect(() => localStorage.setItem(LS_SAVED, JSON.stringify(saved)), [saved])
   useEffect(() => localStorage.setItem(LS_LAST, JSON.stringify(place)), [place])
 
-  // Try to center on the user's real location on first load (once).
   useEffect(() => {
     if (localStorage.getItem(LS_LAST)) return
     handleGeolocate(true)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [])
 
   const isSaved = useMemo(() => saved.some((p) => p.id === place.id), [saved, place])

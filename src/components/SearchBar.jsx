@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { searchLocations } from '../api/weather.js'
 
-// Debounced location search with a live autocomplete dropdown, plus a
-// "use my location" button that triggers the browser geolocation flow.
 export default function SearchBar({ onSelect, onGeolocate, geoLoading }) {
   const [q, setQ] = useState('')
   const [results, setResults] = useState([])

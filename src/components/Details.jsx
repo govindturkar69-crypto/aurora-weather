@@ -1,8 +1,6 @@
 import { convDistance, convSpeed, round, units, windDirection } from '../utils/format.js'
 import { uvCategory } from '../utils/weatherCodes.js'
 
-// Grid of live metric tiles. The wind tile embeds a rotating compass; UV shows
-// a colored gauge.
 export default function Details({ data, system }) {
   const c = data.current
   const u = units(system)

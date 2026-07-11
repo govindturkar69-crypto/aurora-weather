@@ -24,7 +24,6 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 button { font-family: inherit; cursor: pointer; color: inherit; }
 
-/* ------------------------------------------------------------------ layout */
 .app { position: relative; min-height: 100%; }
 .app-inner {
   position: relative; z-index: 2;
@@ -32,7 +31,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
   padding: 22px clamp(14px, 3vw, 32px) 60px;
 }
 
-/* --------------------------------------------------------- animated backdrop */
 .bg-atmosphere {
   position: fixed; inset: 0; z-index: 0;
   transition: background 1.2s ease;
@@ -61,7 +59,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
   opacity: .35;
 }
 
-/* ------------------------------------------------------------------- topbar */
 .topbar {
   display: flex; align-items: center; gap: 18px;
   justify-content: space-between; flex-wrap: wrap;
@@ -74,7 +71,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .brand-light { color: var(--text-dim); font-weight: 400; }
 .topbar-tools { display: flex; align-items: center; gap: 12px; flex: 1; justify-content: flex-end; }
 
-/* -------------------------------------------------------------------- search */
 .search { position: relative; width: min(420px, 60vw); }
 .search-input-wrap {
   display: flex; align-items: center; gap: 8px;
@@ -123,7 +119,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .res-meta { color: var(--text-faint); font-size: 13px; flex: 1; }
 .res-flag { font-size: 16px; }
 
-/* ---------------------------------------------------------------- unit toggle */
 .unit-toggle {
   display: inline-flex; background: var(--glass); border: 1px solid var(--glass-border);
   border-radius: 999px; padding: 3px; backdrop-filter: blur(16px);
@@ -135,7 +130,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 }
 .unit-toggle button.on { background: #fff; color: #0b1026; }
 
-/* ----------------------------------------------------------------- saved chips */
 .saved { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
 .chip {
   display: inline-flex; align-items: center;
@@ -156,7 +150,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 }
 .chip-x:hover { color: #ff8a8a; }
 
-/* --------------------------------------------------------------------- banners */
 .banner {
   padding: 11px 16px; border-radius: var(--radius-sm); margin-bottom: 16px;
   font-size: 14px; backdrop-filter: blur(14px);
@@ -166,7 +159,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .banner.error { background: rgba(248, 113, 113, .14); border: 1px solid rgba(248,113,113,.3); }
 .banner button { border: 1px solid var(--glass-border); background: var(--glass); border-radius: 8px; padding: 4px 10px; }
 
-/* ---------------------------------------------------------------------- layout */
 .layout {
   display: grid; grid-template-columns: minmax(300px, 380px) 1fr; gap: 20px;
   align-items: start;
@@ -193,7 +185,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .refresh-btn:hover { background: var(--glass-strong); color: #fff; }
 .spin { animation: spin 1s linear infinite; }
 
-/* ------------------------------------------------------------------------ hero */
 .hero {
   background: var(--glass); border: 1px solid var(--glass-border);
   border-radius: var(--radius); padding: 26px 24px 24px;
@@ -216,7 +207,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .hero-meta .dot { color: var(--text-faint); }
 .hl { display: inline-flex; align-items: center; gap: 3px; }
 
-/* ------------------------------------------------------------------------ cards */
 .card {
   background: var(--glass); border: 1px solid var(--glass-border);
   border-radius: var(--radius); padding: 20px;
@@ -232,7 +222,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .seg button { border: none; background: transparent; color: var(--text-dim); padding: 5px 13px; border-radius: 999px; font-size: 12px; font-weight: 600; transition: all .2s; }
 .seg button.on { background: rgba(255,255,255,.9); color: #0b1026; }
 
-/* --------------------------------------------------------------------- hourly */
 .chart-scroll { overflow-x: auto; padding-bottom: 4px; }
 .chart-scroll::-webkit-scrollbar { height: 6px; }
 .chart-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.2); border-radius: 3px; }
@@ -255,7 +244,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .hour-pop { font-size: 11px; color: var(--accent); display: flex; align-items: center; gap: 2px; }
 .muted { color: var(--text-faint); }
 
-/* -------------------------------------------------------------------- details */
 .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
 .detail-tile {
   background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
@@ -274,7 +262,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .mini-bar span { display: block; height: 100%; border-radius: 3px; transition: width .6s ease; }
 .compass-needle { transition: transform .6s ease; transform-origin: 12px 12px; }
 
-/* ----------------------------------------------------------------------- sun */
 .sun-wrap { display: flex; flex-direction: column; align-items: center; }
 .sun-times { display: flex; justify-content: space-between; width: 100%; margin-top: 8px; }
 .sun-times > div { display: flex; flex-direction: column; gap: 2px; }
@@ -284,7 +271,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .sun-dot { animation: sunPulse 3s ease-in-out infinite; }
 @keyframes sunPulse { 0%,100% { r: 9; } 50% { r: 11; } }
 
-/* ------------------------------------------------------------------------ air */
 .air-body { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
 .aqi-gauge { flex: 0 0 130px; text-align: center; }
 .aqi-number { font-size: 44px; font-weight: 600; line-height: 1; }
@@ -298,7 +284,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .poll-val { display: block; font-size: 18px; font-weight: 600; margin: 2px 0; }
 .poll-unit { font-size: 10px; color: var(--text-faint); }
 
-/* ---------------------------------------------------------------------- daily */
 .day-list { display: flex; flex-direction: column; }
 .day-item { border-bottom: 1px solid rgba(255,255,255,.07); }
 .day-item:last-child { border-bottom: none; }
@@ -326,14 +311,12 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .dd-label { display: block; font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: .5px; }
 .dd-val { font-size: 15px; font-weight: 600; }
 
-/* --------------------------------------------------------------------- footer */
 .foot {
   display: flex; align-items: center; gap: 10px; justify-content: center;
   margin-top: 30px; color: var(--text-faint); font-size: 13px;
 }
 .foot .dot { opacity: .6; }
 
-/* ------------------------------------------------------------------- skeleton */
 .skeleton { max-width: 400px; margin: 40px auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .sk-line, .sk-circle, .sk-tile { background: linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.16), rgba(255,255,255,.06)); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 10px; }
 .sk-line { height: 20px; width: 60%; } .sk-line.w40 { width: 40%; } .sk-line.w20 { width: 25%; }
@@ -342,7 +325,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .sk-tile { height: 70px; }
 @keyframes shimmer { to { background-position: -200% 0; } }
 
-/* -------------------------------------------------------- weather icon motion */
 .wicon { overflow: visible; }
 .sun-group, .sun-rays { transform-origin: center; }
 .wicon-sun .sun-rays, .wicon-sun-cloud .sun-rays { animation: rays 9s linear infinite; transform-origin: 32px 32px; }
@@ -362,7 +344,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .fog-lines line { animation: fogShift 4s ease-in-out infinite; }
 @keyframes fogShift { 0%,100% { transform: translateX(0); opacity: .6; } 50% { transform: translateX(4px); opacity: 1; } }
 
-/* --------------------------------------------------------------- responsive */
 @media (max-width: 860px) {
   .layout { grid-template-columns: 1fr; }
   .col-hero { position: static; }
@@ -382,11 +363,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
   * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
 }
 
-/* ==========================================================================
-   Added features: rain nowcast, radar map, pollen, moon phase
-   ========================================================================== */
-
-/* --------------------------------------------------------------- nowcast */
 .nowcast-headline {
   display: flex; align-items: center; gap: 9px;
   font-size: 15px; font-weight: 600; margin-bottom: 14px;
@@ -405,7 +381,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .nc-time { font-size: 9px; color: var(--text-faint); margin-top: 4px; }
 .nowcast-scale { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-faint); margin-top: 2px; }
 
-/* ----------------------------------------------------------------- radar */
 .radar-time { font-size: 13px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
 .radar-time .is-forecast { color: #ffd36b; }
 .radar-map {
@@ -431,7 +406,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .radar-slider::-moz-range-thumb { width: 15px; height: 15px; border: none; border-radius: 50%; background: #8fd0ff; cursor: pointer; }
 .radar-loading { font-size: 13px; color: var(--text-faint); margin-top: 10px; text-align: center; }
 
-/* ---------------------------------------------------------------- pollen */
 .pollen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
 .pollen-item { background: rgba(255,255,255,.05); border-radius: var(--radius-sm); padding: 12px; }
 .pollen-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
@@ -444,7 +418,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .pollen-note { font-size: 11px; color: var(--text-faint); margin-top: 12px; }
 .pollen-empty { font-size: 14px; color: var(--text-dim); line-height: 1.55; }
 
-/* ------------------------------------------------------------------ moon */
 .moon-body { display: flex; align-items: center; gap: 20px; }
 .moon-disk { flex-shrink: 0; filter: drop-shadow(0 4px 18px rgba(0,0,0,.4)); }
 .moon-info { display: flex; flex-direction: column; gap: 5px; }
@@ -453,9 +426,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .moon-next { display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--text-dim); margin-top: 6px; }
 .moon-trend { font-size: 12px; color: var(--text-faint); margin-top: 6px; }
 
-/* ==========================================================================
-   Radar — upgraded controls, timeline, legend
-   ========================================================================== */
 .radar-top-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
 .seg.small button { padding: 5px 12px; font-size: 12px; }
 .radar-selects { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -492,7 +462,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
   font-size: 14px; text-align: center; padding: 20px; backdrop-filter: blur(3px);
 }
 
-/* timeline */
 .radar-timeline { margin: 14px 0 4px; }
 .radar-timeline.empty { height: 26px; }
 .tl-track {
@@ -520,7 +489,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .tl-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-faint); margin-top: 8px; }
 .tl-mid { color: var(--text-faint); opacity: .8; }
 
-/* transport row */
 .radar-controls { display: flex; align-items: center; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
 .radar-play {
   display: grid; place-items: center; width: 38px; height: 38px; flex-shrink: 0;
@@ -533,7 +501,6 @@ button { font-family: inherit; cursor: pointer; color: inherit; }
 .radar-opacity input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #8fd0ff; cursor: pointer; }
 .radar-opacity input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: #8fd0ff; cursor: pointer; }
 
-/* legend */
 .radar-legend { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
 .legend-cap { font-size: 11px; color: var(--text-faint); white-space: nowrap; }
 .legend-bar { flex: 1; height: 8px; border-radius: 4px; }

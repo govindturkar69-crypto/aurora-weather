@@ -1,4 +1,3 @@
-// Saved / recent location chips. Selecting one loads it; the ✕ removes it.
 export default function SavedLocations({ places, activeId, onSelect, onRemove }) {
   if (!places.length) return null
   return (

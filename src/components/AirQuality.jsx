@@ -1,7 +1,6 @@
 import { aqiCategory } from '../utils/weatherCodes.js'
 import { round } from '../utils/format.js'
 
-// Live air quality: a US-AQI gauge plus the main pollutant readings.
 export default function AirQuality({ air }) {
   if (!air || air.aqi == null) return null
   const cat = aqiCategory(air.aqi)

@@ -3,8 +3,6 @@ import WeatherIcon from './WeatherIcon.jsx'
 import { describe } from '../utils/weatherCodes.js'
 import { convTemp, fmtDay, round, units, windDirection, convSpeed } from '../utils/format.js'
 
-// 14-day outlook. Each row shows a mini temperature range bar positioned within
-// the week's overall min/max, plus an expandable detail drawer.
 export default function DailyForecast({ data, system }) {
   const [open, setOpen] = useState(null)
   const u = units(system)

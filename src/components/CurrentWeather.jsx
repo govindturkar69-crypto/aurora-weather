@@ -2,8 +2,6 @@ import WeatherIcon from './WeatherIcon.jsx'
 import { describe } from '../utils/weatherCodes.js'
 import { convTemp, round, units } from '../utils/format.js'
 
-// The hero block: big temperature, condition, location, and a quick feels-like
-// / high-low readout.
 export default function CurrentWeather({ data, system }) {
   const c = data.current
   const u = units(system)

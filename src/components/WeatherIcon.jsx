@@ -1,7 +1,5 @@
 import { iconFor } from '../utils/weatherCodes.js'
 
-// Self-animating inline SVG weather glyphs. All motion is CSS (see index.css),
-// so they stay crisp at any size and cost nothing to run.
 export default function WeatherIcon({ code, isDay = true, size = 64 }) {
   const kind = iconFor(code, isDay)
   return (

@@ -1,8 +1,6 @@
 import { fmtHour } from '../utils/format.js'
 import { convPrecip, units } from '../utils/format.js'
 
-// Minute-scale precipitation nowcast for the next ~3 hours (15-min steps),
-// with a plain-language headline. Live from Open-Meteo minutely_15.
 export default function RainNowcast({ nowcast, timezone, system }) {
   if (!nowcast || !nowcast.steps?.length) return null
   const u = units(system)

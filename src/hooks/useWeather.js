@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { fetchWeather, fetchAirQuality } from '../api/weather.js'
 
-// Central data hook: given a place {latitude, longitude, ...} it loads the live
-// forecast + air quality, normalizes them, and auto-refreshes every 10 minutes.
 export function useWeather(place) {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -38,13 +36,11 @@ export function useWeather(place) {
   return { data, loading, error, updatedAt, refresh: () => load(false) }
 }
 
-// Reshape the raw Open-Meteo payloads into tidy arrays the UI can map over.
 function normalize(wx, aq, place) {
   const tz = wx.timezone
   const c = wx.current
   const hIdx = c ? nearestHourIndex(wx.hourly.time, c.time) : 0
 
-  // Next 24 hourly slots starting from "now".
   const hourly = []
   for (let i = hIdx; i < Math.min(hIdx + 24, wx.hourly.time.length); i++) {
     hourly.push({
@@ -82,7 +78,6 @@ function normalize(wx, aq, place) {
 
   const today = daily[0] || {}
 
-  // 15-minutely precipitation nowcast for the next ~3 hours.
   const nowcast = buildNowcast(wx.minutely_15, c?.time)
 
   return {
@@ -132,8 +127,6 @@ function normalize(wx, aq, place) {
   }
 }
 
-// Turn the 15-minutely precipitation series into a short forecast + a plain
-// language summary such as "Rain starting in ~30 min" or "Dry for the next 3h".
 function buildNowcast(m15, nowIso) {
   if (!m15 || !m15.time) return null
   const now = nowIso ? new Date(nowIso).getTime() : Date.now()

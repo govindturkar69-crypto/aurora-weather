@@ -1,7 +1,5 @@
 import { moonInfo } from '../utils/moon.js'
 
-// Tonight's moon, drawn from exact astronomical math (no data fetched).
-// The shadow lune is a proper SVG arc pair so every phase renders correctly.
 export default function MoonPhase() {
   const m = moonInfo(new Date())
   const R = 46, cx = 50, cy = 50
@@ -23,7 +21,6 @@ export default function MoonPhase() {
           </defs>
           <circle cx={cx} cy={cy} r={R + 4} fill="url(#moonHalo)" />
           <circle cx={cx} cy={cy} r={R} fill="url(#moonLit)" />
-          {/* craters for texture */}
           <g fill="#c3c6d4" opacity=".55">
             <circle cx="38" cy="40" r="6" />
             <circle cx="60" cy="55" r="4.5" />
@@ -47,10 +44,9 @@ export default function MoonPhase() {
   )
 }
 
-// Arc-pair shadow: outer semicircle along the dark limb + terminator ellipse.
 function shadowPath(illum, waxing, R, cx, cy) {
-  const rx = R * Math.cos(illum * Math.PI)          // +R (new) .. -R (full)
-  const outerSweep = waxing ? 0 : 1                 // dark limb: left if waxing
+  const rx = R * Math.cos(illum * Math.PI)
+  const outerSweep = waxing ? 0 : 1
   const innerSweep = rx > 0 ? outerSweep : 1 - outerSweep
   const top = `${cx} ${cy - R}`
   const bot = `${cx} ${cy + R}`

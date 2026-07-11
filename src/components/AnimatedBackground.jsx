@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { describe } from '../utils/weatherCodes.js'
 
-// Gradient palettes keyed by theme + day/night. These paint the atmosphere
-// behind everything; the canvas particle layer sits on top.
 const SKIES = {
   clear:  { day: ['#4a90e2', '#7ec4f5', '#bfe3ff'], night: ['#0b1026', '#152046', '#243b6b'] },
   partly: { day: ['#5b93d6', '#8fbde8', '#cfe6f7'], night: ['#0d1330', '#1c2a52', '#33507f'] },
@@ -37,7 +35,6 @@ export default function AnimatedBackground({ code = 0, isDay = true }) {
     resize()
     window.addEventListener('resize', resize)
 
-    // Build the particle set appropriate to the current weather.
     const parts = buildParticles(theme, isDay, () => ({ w, h }))
     let lightningTimer = 0
     let flash = 0
@@ -45,7 +42,6 @@ export default function AnimatedBackground({ code = 0, isDay = true }) {
     const draw = () => {
       ctx.clearRect(0, 0, w, h)
 
-      // Storm lightning flashes.
       if (theme === 'storm') {
         lightningTimer -= 1
         if (lightningTimer <= 0 && Math.random() < 0.01) { flash = 1; lightningTimer = 40 }
@@ -77,7 +73,6 @@ export default function AnimatedBackground({ code = 0, isDay = true }) {
   )
 }
 
-// --- Particle factory ------------------------------------------------------
 function buildParticles(theme, isDay, dims) {
   const list = []
   const { w, h } = dims()
@@ -122,7 +117,7 @@ function buildParticles(theme, isDay, dims) {
       } })
     }
   } else if (!isDay) {
-    // Night sky: twinkling stars + occasional shooting star.
+
     for (let i = 0; i < 120; i++) {
       const x = rand(0, w), y = rand(0, h * 0.75), r = rand(0.4, 1.6), ph = rand(0, 6.28)
       list.push({ step(ctx) {
@@ -132,7 +127,7 @@ function buildParticles(theme, isDay, dims) {
       } })
     }
   } else {
-    // Clear/partly day: soft drifting clouds.
+
     const n = theme === 'partly' || theme === 'cloudy' ? 5 : 2
     for (let i = 0; i < n; i++) {
       let x = rand(0, w), y = rand(h * 0.08, h * 0.4)

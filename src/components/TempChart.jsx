@@ -1,7 +1,5 @@
 import { convTemp, fmtHour, round } from '../utils/format.js'
 
-// A smooth SVG area+line chart of the next 24 hours of temperature, with a
-// precipitation-probability bar track underneath. Pure SVG, no libraries.
 export default function TempChart({ hourly, system, timezone }) {
   const W = Math.max(720, hourly.length * 46)
   const H = 170
@@ -41,7 +39,6 @@ export default function TempChart({ hourly, system, timezone }) {
 
         {hourly.map((h, i) => (
           <g key={h.time}>
-            {/* precip probability bar */}
             {h.pop > 0 && (
               <rect x={x(i) - 6} y={H - 8} width="12" height={Math.max(2, (h.pop / 100) * 22)}
                 rx="3" fill="rgba(90,169,255,.5)" transform={`translate(0 ${-(Math.max(2, (h.pop / 100) * 22))})`} />
@@ -56,7 +53,6 @@ export default function TempChart({ hourly, system, timezone }) {
   )
 }
 
-// Catmull-Rom -> cubic bezier for a smooth curve through all points.
 function smoothPath(pts) {
   if (pts.length < 2) return ''
   let d = `M ${pts[0][0]} ${pts[0][1]}`

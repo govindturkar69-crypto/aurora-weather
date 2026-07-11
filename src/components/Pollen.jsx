@@ -1,7 +1,5 @@
 import { round } from '../utils/format.js'
 
-// Live pollen from Open-Meteo (CAMS). Coverage is strongest over Europe; when a
-// location has no pollen data the card explains that rather than hiding it.
 export default function Pollen({ pollen }) {
   if (!pollen) {
     return (
@@ -49,7 +47,6 @@ export default function Pollen({ pollen }) {
   )
 }
 
-// Thresholds broadly follow common European pollen guidance (grains/m³).
 function pollenCategory(kind, v) {
   const T = {
     grass:   [1, 5, 20, 200],

@@ -3,8 +3,6 @@ import TempChart from './TempChart.jsx'
 import WeatherIcon from './WeatherIcon.jsx'
 import { convTemp, fmtHour, round, units } from '../utils/format.js'
 
-// 24-hour outlook with two views: a smooth temperature chart and a scrollable
-// row of hour cards. Toggle between them.
 export default function HourlyForecast({ data, system }) {
   const [view, setView] = useState('chart')
   const u = units(system)

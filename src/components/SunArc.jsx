@@ -1,6 +1,5 @@
 import { fmtClock } from '../utils/format.js'
 
-// Sunrise/sunset arc with the sun positioned along the day's progress.
 export default function SunArc({ data }) {
   const t = data.today
   if (!t.sunrise || !t.sunset) return null
@@ -11,9 +10,8 @@ export default function SunArc({ data }) {
   const progress = Math.max(0, Math.min(1, (now - rise) / (set - rise)))
   const daylightH = (set - rise) / 3600000
 
-  // Arc geometry.
   const W = 260, H = 120, cx = W / 2, cy = 104, r = 96
-  const angle = Math.PI * (1 - progress) // left(rise) -> right(set)
+  const angle = Math.PI * (1 - progress)
   const sunX = cx + Math.cos(angle) * r
   const sunY = cy - Math.sin(angle) * r
   const isUp = progress > 0 && progress < 1
